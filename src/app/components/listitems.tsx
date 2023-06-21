@@ -8,28 +8,29 @@ import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import DeveloperBoardIcon from '@mui/icons-material/DeveloperBoard';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';
+import SyncIcon from '@mui/icons-material/Sync';
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton>
+    <ListItemButton component="a" href="/">
       <ListItemIcon>
         <DeveloperBoardIcon />
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component="a" href="/projects">
       <ListItemIcon>
         <AssignmentTurnedInIcon />
       </ListItemIcon>
       <ListItemText primary="Projects" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component="a" href="/user">
       <ListItemIcon>
         <AccountCircleIcon />
       </ListItemIcon>
       <ListItemText primary="User" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component="a" href="/settings">
       <ListItemIcon>
         <SettingsIcon />
       </ListItemIcon>
@@ -43,11 +44,17 @@ export const secondaryListItems = (
     <ListSubheader component="div" inset>
       Additional links
     </ListSubheader>
-    <ListItemButton>
+    <ListItemButton component="a" href="/help">
       <ListItemIcon>
         <HelpCenterIcon />
       </ListItemIcon>
       <ListItemText primary="Help" />
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <SyncIcon />
+      </ListItemIcon>
+      <ListItemText primary="Status" />
     </ListItemButton>
   </React.Fragment>
 );

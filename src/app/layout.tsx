@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Copyright } from './components/copyright';
 
 export default function RootLayout({
   children,
@@ -8,18 +8,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Next Layout Example</title>
+        <title>Automated Dashboard</title>
       </head>
       <body>
-        <header>
-          <nav>
-            <Link href="/">Home</Link>
-            <Link href="/projects">Games</Link>
-            <Link href="/user">Games</Link>
-            <Link href="/settings">Games</Link>
-          </nav>
-        </header>
-        <div>{children}</div>
+        <main>{children}</main>
+        <Copyright />
       </body>
     </html>
   );
