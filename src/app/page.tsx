@@ -148,7 +148,6 @@ export default function Dashboard() {
           }}
         >
           <Toolbar />
-          <Copyright sx={{ pt: 4 }} />
         </Box>
       </Box>
     </ThemeProvider>
