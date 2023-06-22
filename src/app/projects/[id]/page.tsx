@@ -4,10 +4,22 @@ interface Props {
   params: { id: string };
 }
 
-export default function Page({ params }: Props) {
+export default async function Page({ params }: Props) {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_SERVICE_URL}` +
+      `/projects/` +
+      params.id +
+      `/details`,
+  );
+
+  const responseObject = await response.json();
+
   return (
-    <p>
-      This my {params.id} <Link href="/"> Go back to home. </Link>{' '}
-    </p>
+    <>
+      <h4>{JSON.stringify(responseObject)}</h4>
+      <p>Download software packages for {responseObject.projectName} </p>
+      <p>This page is for project with an ID: {params.id}</p>
+      <Link href="/"> Go back to home. </Link>{' '}
+    </>
   );
 }
