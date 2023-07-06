@@ -5,12 +5,23 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Run MacOS Brave",
+      "name": "Next.js: Run MacOS Brave",
       "type": "chrome",
       "request": "launch",
       "runtimeExecutable": "/Applications/Brave Browser Beta.app/Contents/MacOS/Brave Browser Beta",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Next.js: Debug full stack",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "serverReadyAction": {
+        "pattern": "started server on .+, url: (https?://.+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      }
     }
   ]
 }
