@@ -13,7 +13,7 @@ export function Copyright(props: any) {
       >
         {'Copyright © '}
         <Link color="inherit" href="#">
-          Kwame Mintah | Automated Dashboard
+          Kwame Mintah | Automation Dashboard
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}

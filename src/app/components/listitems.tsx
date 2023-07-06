@@ -9,6 +9,7 @@ import DeveloperBoardIcon from '@mui/icons-material/DeveloperBoard';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import SyncIcon from '@mui/icons-material/Sync';
+import TextSnippetIcon from '@mui/icons-material/TextSnippet';
 
 export const mainListItems = (
   <React.Fragment>
@@ -49,6 +50,12 @@ export const secondaryListItems = (
         <HelpCenterIcon />
       </ListItemIcon>
       <ListItemText primary="Help" />
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <TextSnippetIcon />
+      </ListItemIcon>
+      <ListItemText primary="FAQ" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
