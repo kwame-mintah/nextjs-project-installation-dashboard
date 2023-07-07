@@ -45,7 +45,7 @@ export default async function Page() {
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography gutterBottom={true}>
-                      {projects[0].projectDetails}
+                      {projects[0].projectDescription}
                     </Typography>
                     <Typography>
                       Download project resources{' '}
@@ -68,7 +68,7 @@ export default async function Page() {
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography gutterBottom={true}>
-                      {projects[1].projectDetails}
+                      {projects[1].projectDescription}
                     </Typography>
                     <Typography>
                       Download project resources{' '}
