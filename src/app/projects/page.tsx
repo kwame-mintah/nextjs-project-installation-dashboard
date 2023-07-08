@@ -80,6 +80,7 @@ export default async function Page() {
                   </AccordionDetails>
                   {/* Accordion #3 */}
                 </Accordion>
+                <br />
                 <Typography variant="overline" gutterBottom={true}>
                   Previous projects
                 </Typography>
