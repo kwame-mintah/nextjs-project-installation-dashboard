@@ -8,8 +8,9 @@ import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import DeveloperBoardIcon from '@mui/icons-material/DeveloperBoard';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';
-import SyncIcon from '@mui/icons-material/Sync';
-import TextSnippetIcon from '@mui/icons-material/TextSnippet';
+import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
+
+const apiUrl = process.env.NEXT_PUBLIC_BACKEND_SERVICE_URL + '/docs';
 
 export const mainListItems = (
   <React.Fragment>
@@ -51,17 +52,11 @@ export const secondaryListItems = (
       </ListItemIcon>
       <ListItemText primary="Help" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component="a" href={apiUrl} target="_blank">
       <ListItemIcon>
-        <TextSnippetIcon />
+        <IntegrationInstructionsIcon />
       </ListItemIcon>
-      <ListItemText primary="FAQ" />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <SyncIcon />
-      </ListItemIcon>
-      <ListItemText primary="Status" />
+      <ListItemText primary="API Docs" />
     </ListItemButton>
   </React.Fragment>
 );
