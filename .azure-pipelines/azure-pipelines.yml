@@ -27,6 +27,12 @@ stages:
         npm run test:ci
       displayName: 'Run npm install and test'
 
+    - task: Cache@2
+      inputs:
+        key: next | $(Agent.OS) | yarn.lock
+        path: '$(System.DefaultWorkingDirectory)/.next/cache'
+      displayName: 'Cache .next/cache'
+
     - script: |
         npm run build --if-present
       displayName: 'Run npm and build'
