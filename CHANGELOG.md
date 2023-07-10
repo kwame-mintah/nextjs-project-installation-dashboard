@@ -1,3 +1,13 @@
+## v0.2.0 (2023-07-10)
+
+### Feat
+
+- final touches to initial release of app
+
+### Refactor
+
+- **dashboard**: delete dashboard directory
+
 ## v0.1.0 (2023-07-10)
 
 ### Feat
