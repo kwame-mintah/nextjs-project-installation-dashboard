@@ -29,7 +29,7 @@ stages:
 
     - task: Cache@2
       inputs:
-        key: next | $(Agent.OS) | yarn.lock
+        key: next | $(Agent.OS) | package.json
         path: '$(System.DefaultWorkingDirectory)/.next/cache'
       displayName: 'Cache .next/cache'
 
