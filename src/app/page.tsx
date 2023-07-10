@@ -6,6 +6,7 @@ import {
   CardActions,
   CardContent,
   Grid,
+  Link,
   Paper,
   Typography,
 } from '@mui/material';
@@ -96,6 +97,24 @@ export default async function Dashboard() {
                   </Typography>
                 </CardContent>
               </Card>
+            </Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+              <Typography variant="h6">How does it work?</Typography>
+              <br />
+              <Typography variant="body1">
+                This project provides a way to download installation scripts for
+                your projects. This will create a shell script (`.sh`) or a
+                configuration file (`.config`) to be run on your machine. The
+                scripts will contain all the project software packages at a
+                pinned version.
+              </Typography>
+              <br />
+              <Typography variant="caption">
+                Please see <Link href="/help">help</Link> section for installing
+                Homebrew or Chocolately onto your machine.
+              </Typography>
             </Paper>
           </Grid>
         </Grid>

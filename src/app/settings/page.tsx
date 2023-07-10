@@ -1,6 +1,13 @@
 'use client';
 
-import { Grid, Paper, Typography, TextField } from '@mui/material';
+import {
+  Button,
+  Grid,
+  Paper,
+  TextField,
+  Tooltip,
+  Typography,
+} from '@mui/material';
 import { Container } from '@mui/system';
 
 const userSettings = async () => {
@@ -40,6 +47,10 @@ export default async function Page() {
                   readOnly: true,
                 }}
               />
+              <br />
+              <Tooltip title="⚠️ Up coming feature, changes will not be saved at this moment.">
+                <Button variant="outlined">Save changes</Button>
+              </Tooltip>
             </Paper>
           </Grid>
         </Grid>
