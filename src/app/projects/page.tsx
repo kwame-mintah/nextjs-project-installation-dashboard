@@ -4,26 +4,64 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Alert,
   Grid,
   Link,
   Paper,
+  Skeleton,
   Typography,
 } from '@mui/material';
 import { Container } from '@mui/system';
 import React from 'react';
+import useSWR from 'swr';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const getProjects = async () => {
-  return fetch(`${process.env.NEXT_PUBLIC_BACKEND_SERVICE_URL}/` + `projects/`)
-    .then((response) => response.json())
-    .then((jsonData) => {
-      return jsonData.projects;
-    })
-    .catch((err) => console.log(err));
-};
+const url = `${process.env.NEXT_PUBLIC_BACKEND_SERVICE_URL}/` + `projects/`;
+const fetcher = (url: RequestInfo | URL) =>
+  fetch(url).then((response) => {
+    if (response.status === 200) {
+      return response.json();
+    }
+    throw new Error('Error returning projects');
+  });
+
+function GetProjects() {
+  const { data, error } = useSWR(url, fetcher);
+
+  if (error) return <Alert severity="error">Error loading projects</Alert>;
+  if (!data) return <Skeleton variant="text" sx={{ fontSize: '1rem' }} />;
+  return (
+    <div>
+      {data.projects.map((data: any) => {
+        return (
+          <>
+            <Accordion key={data.value}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography>{data.projectName}</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography gutterBottom={true}>
+                  {data.projectDescription}
+                </Typography>
+                <Typography>
+                  Download project resources{' '}
+                  <Link href={'projects/' + `${data.projectId}`}>here</Link>.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <br />
+          </>
+        );
+      })}
+    </div>
+  );
+}
 
 export default async function Page() {
-  const projects = await getProjects();
   return (
     <>
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
@@ -34,53 +72,7 @@ export default async function Page() {
                 Current projects
               </Typography>
               <div>
-                <Accordion>
-                  {/* Accordion #1 */}
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography>{projects[0].projectName}</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography gutterBottom={true}>
-                      {projects[0].projectDescription}
-                    </Typography>
-                    <Typography>
-                      Download project resources{' '}
-                      <Link href={'projects/' + `${projects[0].projectId}`}>
-                        here
-                      </Link>
-                      .
-                    </Typography>
-                  </AccordionDetails>
-                  {/* Accordion #1 */}
-                </Accordion>
-                <Accordion>
-                  {/* Accordion #2 */}
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography>{projects[1].projectName}</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography gutterBottom={true}>
-                      {projects[1].projectDescription}
-                    </Typography>
-                    <Typography>
-                      Download project resources{' '}
-                      <Link href={'projects/' + `${projects[1].projectId}`}>
-                        here
-                      </Link>
-                      .
-                    </Typography>
-                  </AccordionDetails>
-                  {/* Accordion #3 */}
-                </Accordion>
-                <br />
+                <GetProjects />
                 <Typography variant="overline" gutterBottom={true}>
                   Previous projects
                 </Typography>
