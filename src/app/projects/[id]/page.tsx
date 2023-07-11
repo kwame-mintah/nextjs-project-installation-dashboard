@@ -54,7 +54,8 @@ function GetSoftwarePackages({ params }: Props) {
 
   if (error)
     return <Alert severity="error">Error loading software packages</Alert>;
-  if (!data) return <Skeleton variant="rectangular" width={500} height={60} />;
+  if (!data)
+    return <Skeleton variant="rectangular" sx={{ fontSize: '10rem' }} />;
   return (
     <>
       <Typography variant="overline">Project details</Typography>
@@ -89,6 +90,7 @@ function GetSoftwarePackages({ params }: Props) {
                 }}
                 noValidate
                 autoComplete="off"
+                key={data.projectId}
               >
                 <div>
                   <TextField

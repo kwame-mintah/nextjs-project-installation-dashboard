@@ -28,14 +28,14 @@ const fetcher = (url: RequestInfo | URL) =>
 function GetProjects() {
   const { data, error } = useSWR(url, fetcher);
 
-  if (error) return <Alert severity="error">Error loading projects</Alert>;
-  if (!data) return <Skeleton variant="text" sx={{ fontSize: '1rem' }} />;
+  if (error) return <Alert severity="error">Error loading projects.</Alert>;
+  if (!data) return <Skeleton variant="text" sx={{ fontSize: '10rem' }} />;
   return (
     <div>
       {data.projects.map((data: any) => {
         return (
           <>
-            <Accordion key={data.value}>
+            <Accordion key={data.projectId}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
