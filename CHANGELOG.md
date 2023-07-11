@@ -1,3 +1,13 @@
+## v0.3.0 (2023-07-11)
+
+### Feat
+
+- **projects**: implement client-side rendering for page
+
+### Refactor
+
+- **projects**: add key props to items rendered
+
 ## v0.2.0 (2023-07-10)
 
 ### Feat
