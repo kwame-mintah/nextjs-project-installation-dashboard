@@ -3,6 +3,12 @@
 This is an web application for automating the installation of multiple software packages by creating shell scripts (`.sh`) and configuration files (`.config`), that include the
 packages to install at a pinned version.
 
+> [!NOTE]
+>
+> This repository was created within Azure DevOps and is now being mirrored to this GitHub [repository](https://github.com/kwame-mintah/nextjs-project-installation-dashboard).
+> Source of truth will always be the Azure DevOps [repository](https://dev.azure.com/k-space/uow/_git/uow-frontend-app). Please see [Terraform](https://dev.azure.com/k-space/uow/_git/uow-infrastructure-terraform)[^1]
+> repository for deploying the application to Azure Web Apps. Alternatively, if running locally the [Backend service][^2] must also be running to accept API requests.
+
 ## Getting Started
 
 1. First install the node packages for this project
@@ -47,3 +53,6 @@ automatically deploy changes made to the `master` branch to an environment varia
 | webAppName                      | The name of the created Azure Web App                     | N/A                                                          | Yes       |
 
 Checkout [Deploy to App Service using Azure Pipelines](https://learn.microsoft.com/en-us/azure/app-service/deploy-azure-pipelines?tabs=yaml) for more details.
+
+[^1]: My Azure DevOps organisation / project is private, Terraform repository is mirrored [here](https://github.com/kwame-mintah/terraform-azure-aad-web-apps) in GitHub.
+[^2]: My Azure DevOps organisation / project is private, FastAPI repository is mirrored [here](https://github.com/kwame-mintah/python-fastapi-create-installation-scripts) in GitHub.
