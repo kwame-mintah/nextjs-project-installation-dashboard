@@ -3,11 +3,24 @@
 This is an web application for automating the installation of multiple software packages by creating shell scripts (`.sh`) and configuration files (`.config`), that include the
 packages to install at a pinned version.
 
+![](docs/preview_automation_dashboard.gif)
+
 > [!NOTE]
 >
 > This repository was created within Azure DevOps and is now being mirrored to this GitHub [repository](https://github.com/kwame-mintah/nextjs-project-installation-dashboard).
 > Source of truth will always be the Azure DevOps [repository](https://dev.azure.com/k-space/uow/_git/uow-frontend-app). Please see [Terraform](https://dev.azure.com/k-space/uow/_git/uow-infrastructure-terraform)[^1]
 > repository for deploying the application to Azure Web Apps. Alternatively, if running locally the [Backend service][^2] must also be running to accept API requests.
+
+## Roadmap
+
+More work needs to be completed for the final version of the application. Below are additional things required for a clearer vision of what is envisioned of this application.
+
+### Implement Next-Auth.js
+
+Implement [Next-Auth.js](https://next-auth.js.org/getting-started/example) configured to the [Azure Active Directory](https://next-auth.js.org/providers/azure-ad), so only
+authenticated users are able to access the dashboard, additionally sending their access token as part of the header to the backend service.
+
+This will involve creating various [routes](https://next-auth.js.org/configuration/initialization#route-handlers-app), e.g. login, logout etc.
 
 ## Getting Started
 
